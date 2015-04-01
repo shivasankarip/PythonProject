@@ -1,0 +1,16 @@
+{%extends 'base.html' %}
+
+{% block export %}
+
+       <div class="col-sm-12 col-sm-offset3">
+          
+          {% if messages %}
+          {% for message in messages %}
+            <p {% if message.tags == "success" %} class="alert alert-success"{% endif %}>{{ message }}</p>
+          {% endfor %}
+     
+        {% endif %}
+        </div>
+
+
+{% endblock %}

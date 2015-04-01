@@ -1,0 +1,40 @@
+{%extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+      <div class="container">
+    
+      <a><img src="../media/ucsc.jpg" alt="img_1" style="width: 1150px;"></a>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+    
+       {% if messages %}
+      <div class="row">
+       <div class="col-sm-12 col-sm-offset3">
+          
+         
+          {% for message in messages %}
+            <p {% if message.tags == "success" %} class="alert alert-success"{% endif %}>{{ message }}</p>
+          {% endfor %}
+     
+        {% endif %}
+        </div>
+        <div class="col-md-8" >
+        <h2>Welcome to UCSC !!</h2>
+       <h3>Visitors please Register here</h3>
+    
+    <form method='post' action=''> {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-md btn-hover btn-success"><br> .
+              
+      </form>
+        </div>
+      </div>
+    
+    </div>
+    
+{% endblock %}    
+ 

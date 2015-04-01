@@ -1,0 +1,75 @@
+{%extends 'base.html' %}
+
+{% block employeelist %}
+
+  <h2>View Visitors by Employee Name </h2>
+  
+  {% if messages %}
+      <div class="row">
+       <div class="col-sm-12 col-sm-offset3">
+          
+         
+          {% for message in messages %}
+            <p {% if message.tags == "error" %} class="alert alert-danger"{% endif %}>{{ message }}</p>
+          {% endfor %}
+     
+        {% endif %}
+  <div >
+  <form action="/employee-list/" method='get'> {% csrf_token %}
+    
+      <input type="text" name="employee" id="employee"  placeholder="Employee name">
+     <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-success">
+
+  </form>
+  
+  
+  
+  </div>
+  
+  
+  <div>
+       {% if emplist %}
+       <h1>list of visitors</h1>
+
+       
+        <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th>Visitor Name</th>
+                  <th>Email id</th>
+                  <th>phone no</th>
+                  <th>Visiting Employee</th>
+                  <th>Reason of visit</th>
+                  <th>Date and time</th>
+                </tr>
+               </thead> 
+
+              <tbody>
+                {% for visitorinfo in emplist %}
+                <tr>
+                  <td>{{visitorinfo.first_name}} {{visitorinfo.last_name}}</td>
+                  <td>{{visitorinfo.email}}</td>
+                  <td>{{visitorinfo.phone}}</td>
+                  <td>{{visitorinfo.employee_name}}
+                  </td>
+                  <td>{{visitorinfo.purpose_of_visit}}</td>
+                  <td>{{visitorinfo.timestamp}}</td>
+                  
+                </tr>
+                {% endfor %}
+              </tbody>
+                
+                
+        </table>
+        </div>
+        {% else %}
+            
+        {% endif %}
+
+      
+      
+  </div>
+
+
+{% endblock %}

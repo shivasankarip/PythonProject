@@ -1,0 +1,43 @@
+{%extends 'base.html' %}
+
+{% block visitorList%}
+        
+        <h1>list of visitors</h1>
+
+        {% if visitorinfos %}
+        <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th>Visitor Name</th>
+                  <th>Email id</th>
+                  <th>phone no</th>
+                  <th>Visiting Employee</th>
+                  <th>Reason of visit</th>
+                  <th>Date and time</th>
+                </tr>
+               </thead> 
+
+              <tbody>
+                {% for visitorinfo in visitorinfos %}
+                <tr>
+                  <td>{{visitorinfo.first_name}} {{visitorinfo.last_name}}</td>
+                  <td>{{visitorinfo.email}}</td>
+                  <td>{{visitorinfo.phone}}</td>
+                  <td>{{visitorinfo.employee_name}}
+                  </td>
+                  <td>{{visitorinfo.purpose_of_visit}}</td>
+                  <td>{{visitorinfo.timestamp}}</td>
+                  
+                </tr>
+                {% endfor %}
+              </tbody>
+                
+                
+        </table>
+        </div>
+        {% else %}
+            <strong>There are no visitor list present.</strong>
+        {% endif %}
+
+{% endblock %}  
