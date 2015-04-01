@@ -1,5 +1,5 @@
 * Quick summary:
- A academic project developed in Django framework, to maintain a log of visitor visiting employees in a office. Using this web application the visitor information can be stored to a DB and can be retrieved later as a full list or filter by date ,filter by employee's name. It also provide a functionality where the data is exported to an Excel sheet. 
+ An academic project developed in Django framework, to maintain a db with information of visitors visiting employees in a office. Using this web application the visitor information can be stored to a DB and can be retrieved later as a full list or filter by date ,filter by employee's name. It also provide a functionality where the data is exported to an Excel sheet. 
 * Version:  Python 2.7 Django -1.7
 
 * Summary of set up:
